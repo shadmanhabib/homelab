@@ -1,73 +1,71 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-         <loc>http://network-docs.shadmanhabib.com/</loc>
-         <lastmod>2024-06-03</lastmod>
-         <changefreq>daily</changefreq>
+         <loc>http://docs.shadmanhabib.com/</loc>
+         <lastmod>2025-07-22</lastmod>
     </url>
     <url>
-         <loc>http://network-docs.shadmanhabib.com/01-overview/</loc>
-         <lastmod>2024-06-03</lastmod>
-         <changefreq>daily</changefreq>
+         <loc>http://docs.shadmanhabib.com/01-overview/</loc>
+         <lastmod>2025-07-22</lastmod>
     </url>
     <url>
-         <loc>http://network-docs.shadmanhabib.com/01-overview/network-architecture/</loc>
-         <lastmod>2024-06-03</lastmod>
-         <changefreq>daily</changefreq>
+         <loc>http://docs.shadmanhabib.com/01-overview/network-architecture/</loc>
+         <lastmod>2025-07-22</lastmod>
     </url>
     <url>
-         <loc>http://network-docs.shadmanhabib.com/02-raspi-servers/</loc>
-         <lastmod>2024-06-03</lastmod>
-         <changefreq>daily</changefreq>
+         <loc>http://docs.shadmanhabib.com/02-network/</loc>
+         <lastmod>2025-07-22</lastmod>
     </url>
     <url>
-         <loc>http://network-docs.shadmanhabib.com/02-raspi-servers/backup-pi/</loc>
-         <lastmod>2024-06-03</lastmod>
-         <changefreq>daily</changefreq>
+         <loc>http://docs.shadmanhabib.com/02-network/configuration/</loc>
+         <lastmod>2025-07-22</lastmod>
     </url>
     <url>
-         <loc>http://network-docs.shadmanhabib.com/02-raspi-servers/homeassistant/</loc>
-         <lastmod>2024-06-03</lastmod>
-         <changefreq>daily</changefreq>
+         <loc>http://docs.shadmanhabib.com/02-network/firewall/</loc>
+         <lastmod>2025-07-22</lastmod>
     </url>
     <url>
-         <loc>http://network-docs.shadmanhabib.com/02-raspi-servers/network-pi/</loc>
-         <lastmod>2024-06-03</lastmod>
-         <changefreq>daily</changefreq>
+         <loc>http://docs.shadmanhabib.com/02-network/services/</loc>
+         <lastmod>2025-07-22</lastmod>
     </url>
     <url>
-         <loc>http://network-docs.shadmanhabib.com/03-ubuntu-server/</loc>
-         <lastmod>2024-06-03</lastmod>
-         <changefreq>daily</changefreq>
+         <loc>http://docs.shadmanhabib.com/03-proxmox/</loc>
+         <lastmod>2025-07-22</lastmod>
     </url>
     <url>
-         <loc>http://network-docs.shadmanhabib.com/03-ubuntu-server/data/</loc>
-         <lastmod>2024-06-03</lastmod>
-         <changefreq>daily</changefreq>
+         <loc>http://docs.shadmanhabib.com/03-proxmox/command-pve/</loc>
+         <lastmod>2025-07-22</lastmod>
     </url>
     <url>
-         <loc>http://network-docs.shadmanhabib.com/04-containers/</loc>
-         <lastmod>2024-06-03</lastmod>
-         <changefreq>daily</changefreq>
+         <loc>http://docs.shadmanhabib.com/03-proxmox/data/</loc>
+         <lastmod>2025-07-22</lastmod>
     </url>
     <url>
-         <loc>http://network-docs.shadmanhabib.com/04-containers/jellyfin/</loc>
-         <lastmod>2024-06-03</lastmod>
-         <changefreq>daily</changefreq>
+         <loc>http://docs.shadmanhabib.com/03-proxmox/nuc-pve/</loc>
+         <lastmod>2025-07-22</lastmod>
     </url>
     <url>
-         <loc>http://network-docs.shadmanhabib.com/04-containers/motioneye/</loc>
-         <lastmod>2024-06-03</lastmod>
-         <changefreq>daily</changefreq>
+         <loc>http://docs.shadmanhabib.com/03-proxmox/stack-pve/</loc>
+         <lastmod>2025-07-22</lastmod>
     </url>
     <url>
-         <loc>http://network-docs.shadmanhabib.com/04-containers/portainer/</loc>
-         <lastmod>2024-06-03</lastmod>
-         <changefreq>daily</changefreq>
+         <loc>http://docs.shadmanhabib.com/04-services/</loc>
+         <lastmod>2025-07-22</lastmod>
     </url>
     <url>
-         <loc>http://network-docs.shadmanhabib.com/04-containers/syncthing/</loc>
-         <lastmod>2024-06-03</lastmod>
-         <changefreq>daily</changefreq>
+         <loc>http://docs.shadmanhabib.com/04-services/jellyfin/</loc>
+         <lastmod>2025-07-22</lastmod>
+    </url>
+    <url>
+         <loc>http://docs.shadmanhabib.com/04-services/motioneye/</loc>
+         <lastmod>2025-07-22</lastmod>
+    </url>
+    <url>
+         <loc>http://docs.shadmanhabib.com/04-services/portainer/</loc>
+         <lastmod>2025-07-22</lastmod>
+    </url>
+    <url>
+         <loc>http://docs.shadmanhabib.com/04-services/syncthing/</loc>
+         <lastmod>2025-07-22</lastmod>
     </url>
 </urlset>

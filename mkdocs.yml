@@ -1,7 +1,7 @@
-site_name: Home Lab Documentation
-site_url: http://network-docs.shadmanhabib.com
-repo_url: https://github.com/shadmanhabib/network-docs
-repo_name: shadmanhabib/network-docs
+site_name: Homelab Documentation
+site_url: http://docs.shadmanhabib.com
+repo_url: https://github.com/shadmanhabib/homelab
+repo_name: shadmanhabib/homelab
 
 theme: 
   name: material
@@ -21,34 +21,38 @@ nav:
   - 'index.md'
   - 1. Overview:
     - '01-overview/index.md'
-    - Network Architecture: '01-overview/network-architecture.md'
-  - 2. Raspberry Pi Servers:
-    - '02-raspi-servers/index.md'
-    - Home Assistant: '02-raspi-servers/homeassistant.md'
-    - Network Pi: '02-raspi-servers/network-pi.md'
-    - Backup Pi: '02-raspi-servers/backup-pi.md'
-  - 3. Ubuntu Server: 
-    - '03-ubuntu-server/index.md'
-    - Data and Storage: '03-ubuntu-server/data.md'
-  - 4. Docker:
-    - '04-containers/index.md'
-    - Portainter: '04-containers/portainer.md'
+    - Topology: '01-overview/network-architecture.md'
+  - 2. Network:
+    - '02-network/index.md'
+    - Configuration: '02-network/configuration.md'
+    - Routing & Firewall: '02-network/firewall.md'
+    - Services: '02-network/services.md'
+  - 3. Proxmox Servers: 
+    - '03-proxmox/index.md'
+    - Nodes:
+      - Command Node: '03-proxmox/command-pve.md'
+      - STACK Node: '03-proxmox/stack-pve.md'
+      - Offsite NUC: '03-proxmox/nuc-pve.md'
+    - Data and Storage: '03-proxmox/data.md'
+  - 4. Services:
+    - '04-services/index.md'
+    - Portainter: '04-services/portainer.md'
     - Primary Services:
-      - Frigate: '04-containers/motioneye.md'
-      - Jellyfin: '04-containers/jellyfin.md'
-      - Actual: '04-containers/actual-budget.md'
+      - Frigate: '04-services/motioneye.md'
+      - Jellyfin: '04-services/jellyfin.md'
+      - Actual: '04-services/actual-budget.md'
     - Notes and File Management:
-      - Syncthing: '04-containers/syncthing.md'
-      - Outline: '04-containers/outline-wiki.md'
-      - Paperless-ngx: '04-containers/paperless-ngx.md'
+      - Syncthing: '04-services/syncthing.md'
+      - Outline: '04-services/outline-wiki.md'
+      - Paperless-ngx: '04-services/paperless-ngx.md'
     - Media Processing:
-      - MakeMKV: '04-containers/makemkv.md'
-      - Handbrake: '04-containers/handbrake.md'
+      - MakeMKV: '04-services/makemkv.md'
+      - Handbrake: '04-services/handbrake.md'
     - Network:
-      - Homer: '04-containers/homer.md'
-      - Pi-hole: '04-containers/pi-hole.md'
-      - Tailscale: '04-containers/tailscale.md'
+      - Homer: '04-services/homer.md'
+      - Pi-hole: '04-services/pi-hole.md'
+      - Tailscale: '04-services/tailscale.md'
     - Authentication and Proxy:
-      - Authelia: '04-containers/authelia.md'
-      - LLDAP: '04-containers/lldap.md'
-      - Nginx Proxy Manager: '04-containers/npm.md'
+      - Authelia: '04-services/authelia.md'
+      - LLDAP: '04-services/lldap.md'
+      - Nginx Proxy Manager: '04-services/npm.md'

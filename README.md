@@ -1,5 +1,5 @@
-# Network-Docs
-Documentation outlining the home network architecture. You can find the full site at [network-pi.home](http://network-pi.home).
+# Homelab
+Documentation outlining the homelab architecture. You can find the full site at [docs.shadmanhabib.com](http://docs.shadmanhabib.com).
 
 ## Table of Contents
 - [Network-Docs](#network-docs)

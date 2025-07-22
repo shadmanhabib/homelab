@@ -1,6 +1,6 @@
 # Welcome to the Home Lab
 
-This site serves as a comprehensive knowledge base for the network architecture employed in the home lab. It is designed to provide an overview of the various systems and configurations, acting as a reference for existing setups and future planning. This wiki is intended for internal use but may be a valueable resource for general readers.
+This site serves as a comprehensive knowledge base for the server & network architecture employed in the homelab. It is designed to provide an overview of the various systems and configurations, acting as a reference for existing setups and future planning. This wiki is intended for internal use but may be a valueable resource for general readers.
 
 ## Perfect Media Server
 
