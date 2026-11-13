@@ -5,9 +5,9 @@ services:
     ports:
       - 8080:8080
     environment:
-      - INIT_ASSETS=1
+      - INIT_ASSETS=0
     volumes:
-      - homer_data:/www/assets
+      - ./assets:/www/assets:ro
 
 volumes:
   homer_data:
