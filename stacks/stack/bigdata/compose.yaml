@@ -1,0 +1,83 @@
+services:
+  redis:
+    image: redis:latest
+    restart: unless-stopped
+    pull_policy: always
+    volumes:
+      - redis_data:/data
+
+  paperless-ngx:
+    image: ghcr.io/paperless-ngx/paperless-ngx:latest
+    restart: unless-stopped
+    pull_policy: always
+    depends_on:
+      - redis
+    ports:
+      - 8000:8000
+    volumes:
+      - paperless_data:/usr/src/paperless/data
+      - /mnt/data/Files/Paperless/media:/usr/src/paperless/media
+      - /mnt/data/Files/Paperless/consume:/usr/src/paperless/consume
+      - /mnt/data/Files/Paperless/export:/usr/src/paperless/export
+    env_file: stack.env
+    environment:
+      PAPERLESS_REDIS: redis://redis:6379
+
+  filebrowser:
+    image: filebrowser/filebrowser
+    restart: unless-stopped
+    pull_policy: always
+    user: 1000:1000
+    ports:
+      - 8080:80
+    volumes:
+      - /mnt/data/Files:/srv
+      - /home/stack/filebrowser/database:/database
+      - /home/stack/filebrowser/.filebrowser.json:/.filebrowser.json
+
+  duplicati:
+    image: lscr.io/linuxserver/duplicati:latest
+    environment:
+      - PUID=0
+      - PGID=0
+      - TZ=Australia/Sydney
+      - SETTINGS_ENCRYPTION_KEY=2GEzLLbxjtWFsr7vugHm7640IlOfG2tOeWNPwp7itppRKkVv
+    volumes:
+      - duplicati_data:/config
+      - /mnt/data/Files:/source
+    ports:
+      - 8200:8200
+    restart: unless-stopped
+    pull_policy: always
+
+  mealie:
+    image: ghcr.io/mealie-recipes/mealie:latest
+    restart: unless-stopped
+    pull_policy: always
+    ports:
+        - "9925:9000"
+    volumes:
+      - mealie_data:/app/data/
+    environment:
+      ALLOW_SIGNUP: "false"
+      ALLOW_PASSWORD_LOGIN: "false"
+      PUID: 1000
+      PGID: 1000
+      TZ: Australia/Sydney
+      BASE_URL: https://mealie.shabib.app
+      OIDC_AUTH_ENABLED: 'true'
+      OIDC_SIGNUP_ENABLED: 'true'
+      OIDC_CONFIGURATION_URL: 'https://auth.shabib.app/.well-known/openid-configuration'
+      OIDC_CLIENT_ID: 'j6-FY8W0wngPMnY4AQPN9eM1WBQow_GQ.GOcwCrLDhpTgfeR1sRIFMBx2sB7AVz-6vUljIr3'
+      OIDC_CLIENT_SECRET: '_3q.Z5DDTSYJ57EzsTI.jVxpIKmDthZkAyyREfpcLe1Am5dyPbVaE8XrACTtnYVAzuXFc-3O'
+      OIDC_AUTO_REDIRECT: 'false'
+      OIDC_ADMIN_GROUP: 'network_admins'
+      OIDC_USER_GROUP: 'network_users'
+      OIDC_PROVIDER_NAME: 'Authelia'
+      OIDC_REMEMBER_ME: 'true'
+
+volumes:
+  redis_data:
+  paperless_data:
+  duplicati_data:
+  mealie_data:
