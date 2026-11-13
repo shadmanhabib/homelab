@@ -1,0 +1,32 @@
+services:
+  authelia:
+    image: authelia/authelia
+    restart: unless-stopped
+    networks:
+      - auth-proxy-bridge
+    ports:
+      - "9091:9091"
+    volumes:
+      - authelia:/config
+    environment:
+      TZ: 'Australia/Sydney'
+
+  lldap:
+    image: lldap/lldap:latest
+    restart: unless-stopped
+    ports:
+      - "3890:3890" # LDAP Port
+      - "17170:17170" # Admin Web Port
+    volumes:
+      - lldap_data:/data
+    environment:
+      - TZ=Australia/Sydney
+
+networks:
+  auth-proxy-bridge:
+    external: true
+    name: auth-proxy-bridge
+
+volumes:
+  authelia:
+  lldap_data:

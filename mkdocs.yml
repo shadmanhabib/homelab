@@ -21,7 +21,7 @@ nav:
   - 'index.md'
   - 1. Overview:
     - '01-overview/index.md'
-    - Topology: '01-overview/network-architecture.md'
+    - Hardware & Topology: '01-overview/network-architecture.md'
   - 2. Network:
     - '02-network/index.md'
     - Configuration: '02-network/configuration.md'

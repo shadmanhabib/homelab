@@ -1,0 +1,31 @@
+services:
+  nginx:
+    image: jc21/nginx-proxy-manager:2.12.3
+    restart: unless-stopped
+    networks:
+      - auth-proxy-bridge
+    ports:
+      - "80:80" # Public HTTP Port
+      - "443:443" # Public HTTPS Port
+      - "81:81" # Admin Wed Port
+    volumes:
+      - nginx_data:/data
+      - letsencrypt:/etc/letsencrypt
+      - auth_snippets:/snippets:ro
+
+  openspeedtest:
+    image: openspeedtest/latest
+    ports:
+      - "3000:3000"
+      - "3001:3001"
+    restart: unless-stopped
+
+networks:
+  auth-proxy-bridge:
+    external: true
+    name: auth-proxy-bridge
+
+volumes:
+  nginx_data:
+  letsencrypt:
+  auth_snippets:
