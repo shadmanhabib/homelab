@@ -8,6 +8,3 @@ services:
       - INIT_ASSETS=0
     volumes:
       - ./assets:/www/assets:ro
-
-volumes:
-  homer_data:
