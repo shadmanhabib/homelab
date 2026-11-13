@@ -1,0 +1,105 @@
+services:
+  gluetun:
+    image: qmcgaw/gluetun
+    restart: unless-stopped
+    pull_policy: always
+    cap_add:
+      - NET_ADMIN
+    devices:
+      - /dev/net/tun:/dev/net/tun
+    volumes:
+      - gluetun_data:/gluetun
+    ports:
+      - 8888:8888/tcp # HTTP proxy
+      - 8388:8388/tcp # Shadowsocks
+      - 8388:8388/udp # Shadowsocks
+      - 8081:8081 # Port for qBittorrent
+      - 9696:9696 # Port for Prowlarr
+      - 7878:7878 # Port for Radarr
+      - 8989:8989 # Port for Sonarr
+    environment:
+      - VPN_SERVICE_PROVIDER=nordvpn
+      - VPN_TYPE=openvpn # or wireguard
+      - OPENVPN_USER=PdH6wbWeGSTjcivc6j5F3DYc
+      - OPENVPN_PASSWORD=4s8MPajvVSUchTwX5Q49eBY5
+      - SERVER_COUNTRIES=Australia
+      - TZ=Australia/Sydney
+
+  qbittorrent:
+    image: qbittorrentofficial/qbittorrent-nox:latest
+    network_mode: "service:gluetun"
+    restart: unless-stopped
+    pull_policy: always
+    environment:
+      - PGID=0
+      - PUID=0
+      - QBT_LEGAL_NOTICE=confirm
+      - QBT_VERSION=latest
+      - QBT_WEBUI_PORT=8081
+      - TZ=Australia/Sydney
+    volumes:
+      - qbittorrent_data:/config
+      - /mnt/data/Files/Torrent:/downloads
+    tmpfs:
+      - /tmp
+
+  prowlarr:
+    image: lscr.io/linuxserver/prowlarr:latest
+    network_mode: "service:gluetun"
+    restart: unless-stopped
+    pull_policy: always
+    environment:
+      - PUID=0
+      - PGID=0
+      - TZ=Australia/Sydney
+    volumes:
+      - prowlarr_data:/config
+
+  radarr:
+    image: lscr.io/linuxserver/radarr:latest
+    network_mode: "service:gluetun"
+    restart: unless-stopped
+    pull_policy: always
+    environment:
+      - PUID=0
+      - PGID=0
+      - TZ=Australia/Sydney
+    volumes:
+      - radarr_data:/config
+      - /mnt/data/Media/Movies:/movies #optional
+      - /mnt/data/Files/Torrent:/downloads #optional
+
+  sonarr:
+    image: lscr.io/linuxserver/sonarr:latest
+    network_mode: "service:gluetun"
+    restart: unless-stopped
+    pull_policy: always
+    environment:
+      - PUID=0
+      - PGID=0
+      - TZ=Australia/Sydney
+    volumes:
+      - sonarr_data:/config
+      - /mnt/data/Media/Shows:/tv #optional
+      - /mnt/data/Files/Torrent:/downloads #optional
+
+  jellyseerr:
+    image: ghcr.io/seerr-team/seerr:latest
+    restart: unless-stopped
+    pull_policy: always
+    environment:
+      - LOG_LEVEL=debug
+      - TZ=Australia/Sydney
+      - PORT=5055 #optional
+    ports:
+      - 5055:5055
+    volumes:
+      - jellyseerr_config:/app/config
+
+volumes:
+  gluetun_data:
+  qbittorrent_data:
+  prowlarr_data:
+  radarr_data:
+  sonarr_data:
+  jellyseerr_config:
