@@ -1,0 +1,64 @@
+services:
+  redis:
+    image: redis:latest
+    restart: unless-stopped
+    pull_policy: always
+    volumes:
+      - redis_data:/data
+
+  outline-db:
+    image: postgres:16
+    restart: unless-stopped
+    pull_policy: always
+    volumes:
+      - outline_db:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: outline
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: pass
+
+  outline:
+    image: outlinewiki/outline:latest
+    restart: unless-stopped
+    pull_policy: always
+    env_file: stack.env
+    ports:
+      - 3000:3000
+    volumes:
+      - outline_data:/var/lib/outline/data
+    depends_on:
+      - redis
+      - outline-db
+
+  actual_budget:
+    image: docker.io/actualbudget/actual-server:latest
+    ports:
+      - '5006:5006'
+    volumes:
+      - actual_data:/data
+    restart: unless-stopped
+    pull_policy: always
+
+  crafty:
+    image: registry.gitlab.com/crafty-controller/crafty-4:latest
+    restart: unless-stopped
+    pull_policy: always
+    environment:
+        - TZ=Australia/Sydney
+    ports:
+        - "8443:8443" # HTTPS
+        - "8123:8123" # DYNMAP
+        - "19132:19132/udp" # BEDROCK
+        - "25560-25570:25560-25570" # MC SERV PORT RANGE
+    volumes:
+        - /home/stack/crafty/backups:/crafty/backups
+        - /home/stack/crafty/logs:/crafty/logs
+        - /home/stack/crafty/servers:/crafty/servers
+        - /home/stack/crafty/config:/crafty/app/config
+        - /home/stack/crafty/import:/crafty/import
+
+volumes:
+  redis_data:
+  outline_db:
+  outline_data:
+  actual_data:
